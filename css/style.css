@@ -452,6 +452,25 @@ a.btn-line{display:inline-block;text-decoration:none}
   .hf,.hf.hf-big{grid-column:auto}
   .hf.hf-big{grid-column:span 2}
   .rail a span{display:none}
+  /* fixed brand and basket get a soft dark band, so they never sit on top of headings or the parchment page */
+  body::after{content:"";position:fixed;z-index:39;left:0;right:0;top:0;height:calc(72px + env(safe-area-inset-top,0px));pointer-events:none;
+    background:linear-gradient(rgba(14,12,9,.92),rgba(14,12,9,.6) 60%,transparent)}
+  .foot{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot>div:last-child{grid-column:1/-1}
+}
+/* tablet held upright: stack what sits side by side on wider screens */
+@media (max-width:1024px) and (orientation:portrait){
+  .prod-step,.prod-stage{grid-template-columns:1fr}
+  .motion .prod .pin{padding-top:calc(90px + env(safe-area-inset-top,0px))}
+  .motion .prod-stage{grid-template-columns:1fr;grid-template-rows:auto auto;align-items:start;gap:18px;align-content:start}
+  .motion .prod-fig{grid-area:1/1;height:40svh;max-height:40svh}
+  .motion .prod-card-slot{grid-area:2/1;gap:16px;justify-self:center;width:min(100%,560px)}
+  .seeds-stage{grid-template-columns:1fr}
+  .motion .seeds-stage{grid-template-rows:auto 1fr;align-content:start;gap:16px;padding-top:calc(90px + env(safe-area-inset-top,0px))}
+  .motion .seed-wrap{grid-row:1;width:100%;max-width:520px}
+  .motion .seeds-copy{grid-row:2;align-items:start;justify-items:center}
+  .carl-grid{grid-template-columns:1fr}
+  .bao-side{max-width:420px;justify-self:center}
 }
 /* phone */
 @media (max-width:720px){
