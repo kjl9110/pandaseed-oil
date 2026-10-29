@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pandaseed Oil</title>
+  <link rel="icon" href="img/favicon.png?v=3" sizes="256x256" type="image/png">
+  <link rel="icon" href="img/favicon-32.png?v=3" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=3">
+  <meta name="description" content="Pandaseed Oil — a scrollytelling story of cold-pressed Pandaseed Oil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,700&family=Courier+Prime:wght@400;700&family=Gloock&family=Pinyon+Script&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=60">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-in">
+      <svg viewBox="0 0 38 56"><path d="M19 2C19 2 3 24 3 36a16 16 0 0 0 32 0C35 24 19 2 19 2Z" fill="none" stroke="#f2b705" stroke-width="2"/><clipPath id="ldc"><path d="M19 2C19 2 3 24 3 36a16 16 0 0 0 32 0C35 24 19 2 19 2Z"/></clipPath><rect id="ldfill" x="0" y="56" width="38" height="56" fill="#f2b705" clip-path="url(#ldc)"/></svg>
+      <div class="loader-num" id="ldnum">0%</div>
+      <div class="loader-cap">Pressing the page</div>
+    </div>
+  </div>
+
+  <a class="brand" id="brand" href="#top">Pandaseed <small>est. 1753</small></a>
+  <button class="cart-btn" id="cartBtn" type="button" aria-controls="cart" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.3 11.2a1.5 1.5 0 0 1-1.5 1.3H7.8a1.5 1.5 0 0 1-1.5-1.3Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+    <span class="cart-label">Basket</span><span class="cart-count" id="cartCount">0</span>
+  </button>
+  <div class="cart-scrim" id="cartScrim" hidden></div>
+  <aside class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true" inert>
+    <header class="cart-head">
+      <p class="eyebrow">Your basket</p>
+      <h2 id="cartTitle">Pressed &amp; <em>ready</em></h2>
+      <button class="cart-close" id="cartClose" type="button" aria-label="Close basket">&times;</button>
+    </header>
+    <ul class="cart-list" id="cartList"></ul>
+    <div class="cart-empty" id="cartEmpty">
+      <p>Your basket is empty.</p>
+      <a class="btn-line" href="#oils" id="cartBrowse">Browse our oils</a>
+    </div>
+    <footer class="cart-foot" id="cartFoot">
+      <p class="cart-row"><span>Subtotal</span><b id="cartSub">€0.00</b></p>
+      <p class="cart-row cart-ship"><span>Shipping</span><span id="cartShip">Free over €40</span></p>
+      <p class="cart-row cart-total"><span>Total</span><b id="cartTotal">€0.00</b></p>
+      <button class="cart-checkout" id="cartCheckout" type="button">Checkout</button>
+      <p class="cart-note" id="cartNote" role="status"></p>
+    </footer>
+  </aside>
+  <nav class="rail" id="rail" aria-label="Sections">
+    <div class="rail-fill" id="railFill"></div>
+    <a href="#production" data-nav="production"><span>Production</span><i></i></a>
+    <a href="#seeds" data-nav="seeds"><span>Our seeds</span><i></i></a>
+    <a href="#health" data-nav="health"><span>Health facts</span><i></i></a>
+    <a href="#oils" data-nav="oils"><span>Our oils</span><i></i></a>
+    <a href="#carl" data-nav="carl"><span>Who's Bao?</span><i></i></a>
+  </nav>
+
+  <main id="top">
+
+  <section class="hero" aria-label="Pandaseed Oil">
+    <div class="pin">
+      <div class="hero-room"></div>
+      <div class="hero-img"><img src="img/hero.webp?v=2" alt="Watercolour of rolling rapeseed fields under a summer sky, with the oval Pandaseed Oil badge, est. 1753, pressed by Bao" fetchpriority="high"><canvas id="petals" class="petals" aria-hidden="true"></canvas><div class="badge-layer" id="badgeLayer" aria-hidden="true"><div class="hero-badge" id="heroBadge"><span class="hb-face"></span></div></div></div>
+      <div class="hero-sill"></div>
+      <div class="hero-frame" aria-hidden="true"><i class="jamb l"></i><i class="jamb r"></i><i class="jamb t"></i></div>
+      <p class="hero-tag">Pressed in the valley since 1753</p>
+      <div class="hero-cue"><span class="mouse" aria-hidden="true"></span>Scroll to learn more</div>
+    </div>
+  </section>
+
+  <section class="intro" aria-label="Introduction">
+    <div class="pin wrap">
+      <img class="intro-panda" src="img/p-hug.webp?v=11" alt="A panda sitting among rapeseed flowers, hugging a large bottle of golden oil">
+      <div class="intro-text">
+        <p class="eyebrow">The quiet craft of the press</p>
+        <p class="intro-quote" id="introQuote">From the yellow of the fields to the gold in the bottle. Seeds, patience and a little <em>pressure</em>, and nothing else.</p>
+        <p class="intro-sign">Pandaseed Oil · Brassica napus L.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Pandaseed Oil <b>is good for you</b> •</span><span>Pandaseed Oil <b>is good for you</b> •</span><span>Pandaseed Oil <b>is good for you</b> •</span>
+      <span>Pandaseed Oil <b>is good for you</b> •</span><span>Pandaseed Oil <b>is good for you</b> •</span><span>Pandaseed Oil <b>is good for you</b> •</span>
+    </div>
+  </div>
+
+  <section class="prod" id="production" aria-labelledby="prodTitle">
+    <div class="pin wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Production</p>
+        <h2 id="prodTitle">Four steps, <i>no shortcuts</i></h2>
+      </div>
+      <div class="prod-stage">
+        <div class="prod-figs">
+          <div class="prod-fig" data-fig><img src="img/p-harvest.webp?v=11" alt="A panda holding a bundle of rapeseed stalks beside a woven basket"></div>
+          <div class="prod-fig" data-fig><img src="img/p-select.webp?v=11" alt="A panda pouring seeds into a wooden hand-cranked cleaning mill"></div>
+          <div class="prod-fig" data-fig><img src="img/p-press.webp?v=11" alt="A panda leaning on the lever of a wooden oil press, oil running into a jar"></div>
+          <div class="prod-fig" data-fig><img src="img/p-control.webp?v=11" alt="A panda holding a glowing flask of oil up to the light beside rows of filled jugs"></div>
+        </div>
+        <div class="prod-card-slot">
+          <div class="prod-meta"><span class="prod-count" id="prodCount">01 / 04</span><span class="prod-bars" id="prodBars"><i class="is-on"></i><i></i><i></i><i></i></span></div>
+          <div class="prod-cards">
+            <article class="card" data-card>
+              <p class="eyebrow">Step 01</p>
+              <h3>Harvest</h3>
+              <p>The stalks are cut when the pods rattle dry on the stem. Our pandas gather them by hand along the field edges and carry them home in baskets.</p>
+              <p class="spec">Harvest window · July</p>
+            </article>
+            <article class="card" data-card>
+              <p class="eyebrow">Step 02</p>
+              <h3>Selection &amp; Purification</h3>
+              <p>Only fully ripe seed from a single variety goes through the mill. Sieving and winnowing take out dust, husk and stones, which keeps the flavour clean and the oil stable.</p>
+              <p class="spec">Seed moisture · under 9%</p>
+            </article>
+            <article class="card" data-card>
+              <p class="eyebrow">Step 03</p>
+              <h3>Gentle Cold Pressing</h3>
+              <p>A slow lever press squeezes the seed by force alone. No added heat, no solvents, so the vitamins and the nutty seed aroma stay in the oil.</p>
+              <p class="spec">Press temperature · below 40 °C</p>
+            </article>
+            <article class="card" data-card>
+              <p class="eyebrow">Step 04</p>
+              <h3>Filtration &amp; Quality Control</h3>
+              <p>The fresh oil rests, settles and runs through cloth. Every batch is held to the light, tasted and checked before a single jug is sealed.</p>
+              <p class="spec">Every batch · tasted &amp; tested</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seeds" id="seeds" aria-labelledby="seedsTitle">
+    <div class="pin">
+      <div class="seeds-stage wrap" id="seedsStage">
+        <div class="seeds-copy">
+          <p class="seed-q" id="seedsTitle">Yet have you ever wondered <em>where</em>, inside the seed itself, this liquid gold is kept?</p>
+          <div>
+            <div class="facts" id="facts">
+              <div class="fact paper" data-hl="all"><b>Seed · whole</b><p>An average rapeseed is roughly 40 to 45 per cent oil by weight.</p></div>
+              <div class="fact paper" data-hl="embryo"><b>Endosperm</b><p>Most of it, over 90 per cent, sits in the endosperm, packed into microscopic oil droplets.</p></div>
+              <div class="fact paper" data-hl="embryo"><b>Purpose</b><p>The oil is fuel. It feeds the seedling until its first green leaves can photosynthesise.</p></div>
+              <div class="fact paper" data-hl="aleurone"><b>Aleurone layer</b><p>A thinner reserve of oil lies in the aleurone layer wrapped around the endosperm.</p></div>
+              <div class="fact paper" data-hl="testa tegmen"><b>The rest</b><p>About 20 to 25 per cent protein, plus fibre in the hull, water and carbohydrates.</p></div>
+            </div>
+            <p class="fact-count" id="factCount">Fact 1 / 5</p>
+          </div>
+        </div>
+        <div class="seed-wrap" id="seedWrap">
+          <svg class="seed-svg" id="seedSvg" viewBox="-180 -200 480 400" role="img" aria-label="Cross-section of a rapeseed showing testa, tegmen, aleurone layer and endosperm">
+            <defs>
+              <filter id="sgBlur10" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="10"/></filter>
+            </defs>
+            <!-- contact shadow on the ground -->
+            <ellipse class="seed-shadow" cx="14" cy="168" rx="128" ry="16" fill="#000" opacity=".55" filter="url(#sgBlur10)"/>
+            <g class="seed-float">
+            <image href="img/seed-section.webp" x="-150" y="-151" width="300" height="302"/>
+            <g>
+              <polyline class="lbl-line k-aleurone" points="26,-123 26,-178"/>
+              <text class="lbl t-aleurone" x="18" y="-188" text-anchor="end">Aleurone</text>
+              <text class="lbl t-aleurone" x="18" y="-170" text-anchor="end">layer</text>
+              <polyline class="lbl-line k-testa" points="60,-136 92,-176"/>
+              <text class="lbl t-testa" x="98" y="-174">Testa</text>
+              <polyline class="lbl-line k-tegmen" points="98,-98 134,-136"/>
+              <text class="lbl t-tegmen" x="140" y="-134">Tegmen</text>
+              <polyline class="lbl-line k-embryo" points="66,-30 160,-80"/>
+              <text class="lbl t-embryo" x="166" y="-86">Endosperm</text>
+              <text class="lbl t-embryo" x="186" y="-66">(Oil)</text>
+            </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="plant-scene" id="plantScene" aria-hidden="true">
+        <div class="ps-box" id="psBox">
+          <img class="ps-plant" src="img/rapeseed-plant.webp" alt="">
+          <svg class="ps-arrows" viewBox="0 0 1000 900">
+            <path pathLength="1" d="M262 152C300 138 332 150 346 172"/><path pathLength="1" d="M345 157L346 172L332.9 164.8"/>
+            <path pathLength="1" d="M762 150C746 178 708 170 686 146"/><path pathLength="1" d="M689.6 160.6L686 146L700.2 150.8"/>
+            <path pathLength="1" d="M226 588C256 572 286 562 312 560"/><path pathLength="1" d="M298.3 553.8L312 560L299.4 568.2"/>
+          </svg>
+          <p class="ps-tag ps-flower">Flower</p>
+          <p class="ps-tag ps-pods">Seed pods<br>(Siliques)</p>
+          <p class="ps-tag ps-leaves">Leaves</p>
+          <div class="ps-label"><b>BRASSICA NAPUS</b><span>(RAPESEED)</span><small>PRESSED BY BAO · 1753</small></div>
+          <div class="ps-lens" id="psLens"><img src="img/rapeseed-plant.webp" alt=""></div>
+        </div>
+      </div>
+      <div class="lens-ring" id="lensRing" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="health wrap" id="health" aria-labelledby="healthTitle">
+    <img class="health-sprig" src="img/rapeseed-plant.webp" alt="" aria-hidden="true" loading="lazy">
+    <div style="max-width:1240px;margin-inline:auto">
+      <div class="sec-head">
+        <p class="eyebrow">Health facts</p>
+        <h2 id="healthTitle">What a spoonful <i>carries</i></h2>
+        <img class="health-spoon" src="img/spoon.webp?v=7" width="1270" height="379" alt="Watercolour wooden spoon seen from the side, brimming with golden Pandaseed Oil, oil spilling over the front tip and running along the underside into a drop beneath the bowl" loading="lazy">
+      </div>
+      <div class="health-grid">
+        <article class="hf hf-big">
+          <svg viewBox="0 0 56 56"><circle cx="20" cy="28" r="14"/><circle cx="42" cy="28" r="7"/><path d="M8 48h40"/></svg>
+          <p class="hf-num">2 : 1</p>
+          <h3>Balanced omega fats</h3>
+          <p>Omega-6 and omega-3 sit at roughly two to one, a closer balance than most cooking oils offer.</p>
+        </article>
+        <article class="hf hf-big">
+          <svg viewBox="0 0 56 56"><path d="M28 47S8 35 8 21a10 10 0 0 1 20-3 10 10 0 0 1 20 3c0 14-20 26-20 26Z"/><path d="M14 27h8l3-6 5 12 3-6h9"/></svg>
+          <p class="hf-num">≈ 7%</p>
+          <h3>Low in saturated fat</h3>
+          <p>The lowest share of saturated fat among the common kitchen oils, with plenty of heart-friendly unsaturated fat.</p>
+        </article>
+        <article class="hf">
+          <svg viewBox="0 0 56 56"><path d="M28 6C28 6 12 26 12 36a16 16 0 0 0 32 0C44 26 28 6 28 6Z"/><path d="M33 29h-9v14h9M24 36h7"/></svg>
+          <p class="hf-num">2.4 mg</p>
+          <h3>Vitamin E per tablespoon</h3>
+          <p>Natural tocopherols act as antioxidants, protecting both your cells and the oil itself from going stale.</p>
+        </article>
+        <article class="hf">
+          <svg viewBox="0 0 56 56"><path d="M28 50V26"/><path d="M28 32c-10 0-16-6-16-16 10 0 16 6 16 16Z"/><path d="M28 26c0-9 6-15 16-15 0 10-6 15-16 15Z"/></svg>
+          <p class="hf-num">≈ 9%</p>
+          <h3>Plant omega-3 (ALA)</h3>
+          <p>One of the richest everyday sources of alpha-linolenic acid, the omega-3 your body cannot make on its own.</p>
+        </article>
+        <article class="hf">
+          <svg viewBox="0 0 56 56"><path d="M28 6 46 13v14c0 11-8 19-18 23-10-4-18-12-18-23V13Z"/><path d="M20 28l6 6 11-12"/></svg>
+          <p class="hf-num">Sterols</p>
+          <h3>Plant sterols</h3>
+          <p>Used in place of butter or lard, Pandaseed Oil helps keep LDL cholesterol in check.</p>
+        </article>
+        <article class="hf">
+          <svg viewBox="0 0 56 56"><path d="M28 50c-9 0-15-6-15-14 0-9 8-13 9-22 6 4 7 9 6 13 3-2 5-5 5-9 6 5 10 11 10 18 0 8-6 14-15 14Z"/></svg>
+          <p class="hf-num">≈ 180 °C</p>
+          <h3>Gentle heat</h3>
+          <p>Cold-pressed oil suits dressings, baking and medium-heat cooking. Keep the smoking hot pan for refined oils.</p>
+        </article>
+      </div>
+      <p class="note">Typical values for Pandaseed Oil. Natural products vary from batch to batch.</p>
+    </div>
+  </section>
+
+  <section class="oils" id="oils" aria-labelledby="oilsTitle">
+    <div class="pin wrap">
+      <div class="sec-head" style="position:relative;z-index:2">
+        <p class="eyebrow">Our oils</p>
+        <h2 id="oilsTitle">Five bottles, <i>one field</i></h2>
+      </div>
+      <div class="oils-list" id="oilsList">
+        <div class="oil" data-oil data-tint="#e3a11b">
+          <div class="oil-bottle" data-bottle="classic"><img src="img/bottle-classic.webp?v=8" width="600" height="1020" alt=""></div>
+          <div class="oil-info" data-info>
+            <h3>Daily Gold · Cold Pressed</h3>
+            <p>The everyday bottle. Pressed from single-variety seed, gently nutty and light enough for dressings, sautéing and baking.</p>
+            <div class="oil-row"><span class="spec">500 ml · cold pressed · below 40 °C</span><button class="buy" type="button" id="buy1" data-id="classic" data-name="Daily Gold" data-size="500 ml" data-price="14">Add to basket · €14</button></div>
+          </div>
+        </div>
+        <div class="oil" data-oil data-tint="#c48a22">
+          <div class="oil-bottle" data-bottle="flask"><img src="img/bottle-flask.webp?v=8" width="600" height="1020" alt=""></div>
+          <div class="oil-info" data-info>
+            <h3>Wild Grain · Unfiltered</h3>
+            <p>Left to settle and never filtered. Naturally cloudy, with a deeper seed flavour and a green, peppery finish. Best raw over warm vegetables.</p>
+            <div class="oil-row"><span class="spec">250 ml · unfiltered · naturally cloudy</span><button class="buy" type="button" id="buy2" data-id="flask" data-name="Wild Grain" data-size="250 ml" data-price="16">Add to basket · €16</button></div>
+          </div>
+        </div>
+        <div class="oil" data-oil data-tint="#b06a2a">
+          <div class="oil-bottle" data-bottle="jug"><img src="img/bottle-jug.webp?v=9" width="600" height="1020" alt=""></div>
+          <div class="oil-info" data-info>
+            <h3>Bamboo Valley · Single Estate</h3>
+            <p>Seed from one hillside farm, pressed within a week of harvest. Stoneware keeps out the light, and the taste carries the soil it grew in.</p>
+            <div class="oil-row"><span class="spec">750 ml · single estate · stoneware</span><button class="buy" type="button" id="buy3" data-id="jug" data-name="Bamboo Valley" data-size="750 ml" data-price="24">Add to basket · €24</button></div>
+          </div>
+        </div>
+        <div class="oil" data-oil data-tint="#e2b93b">
+          <div class="oil-bottle" data-bottle="slim"><img src="img/bottle-slim.webp?v=9" width="600" height="1020" alt=""></div>
+          <div class="oil-info" data-info>
+            <h3>Florae · First Drop</h3>
+            <p>Only the oil that runs before full pressure is applied. Pale, floral and delicate, made for finishing a dish rather than for the pan.</p>
+            <div class="oil-row"><span class="spec">100 ml · free-run · limited</span><button class="buy" type="button" id="buy4" data-id="slim" data-name="Florae" data-size="100 ml" data-price="19">Add to basket · €19</button></div>
+          </div>
+        </div>
+        <div class="oil" data-oil data-tint="#8f3f12">
+          <div class="oil-bottle" data-bottle="reserve"><img src="img/bottle-reserve.webp?v=8" width="600" height="1020" alt=""></div>
+          <div class="oil-info" data-info>
+            <h3>Bao 1753 · Reserve</h3>
+            <p>Pressed once a year on Bao's original lever press from an heirloom seed. A deep amber oil, resinous and rich, kept for slow evenings.</p>
+            <div class="oil-row"><span class="spec">200 ml · numbered · No. 0001 / 1753</span><button class="buy" type="button" id="buy5" data-id="reserve" data-name="Bao 1753 Reserve" data-size="200 ml" data-price="48">Add to basket · €48</button></div>
+          </div>
+        </div>
+      </div>
+      <p class="oil-count" id="oilCount">01<small>/ 05</small></p>
+    </div>
+  </section>
+
+  <section class="drop" aria-label="Interlude">
+    <div class="pin wrap">
+      <div class="drop-line" id="dropLine"></div>
+      <svg class="drop-bead" id="dropBead" viewBox="0 0 22 34"><defs><linearGradient id="dbBody" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7a3f02"/><stop offset=".22" stop-color="#d98a0a"/><stop offset=".5" stop-color="#ffc93a"/><stop offset=".78" stop-color="#e3960c"/><stop offset="1" stop-color="#874802"/></linearGradient><radialGradient id="dbGlow" cx=".55" cy=".78" r=".42"><stop offset="0" stop-color="#ffe98a" stop-opacity=".95"/><stop offset="1" stop-color="#ffd24a" stop-opacity="0"/></radialGradient></defs><path d="M11 0C11 0 10.6 5 9.6 8.4 7.4 14.6 2 19.4 2 25a9 9 0 0 0 18 0c0-5.6-5.4-10.4-7.6-16.6C11.4 5 11 0 11 0Z" fill="url(#dbBody)"/><path d="M11 0C11 0 10.6 5 9.6 8.4 7.4 14.6 2 19.4 2 25a9 9 0 0 0 18 0c0-5.6-5.4-10.4-7.6-16.6C11.4 5 11 0 11 0Z" fill="url(#dbGlow)"/><path d="M11 0C11 0 10.6 5 9.6 8.4 7.4 14.6 2 19.4 2 25a9 9 0 0 0 18 0c0-5.6-5.4-10.4-7.6-16.6C11.4 5 11 0 11 0Z" fill="none" stroke="#6a3400" stroke-opacity=".45" stroke-width=".6"/><ellipse cx="7.2" cy="21.5" rx="1.5" ry="3.6" fill="#fffbe8" opacity=".9" transform="rotate(12 7.2 21.5)"/><circle cx="8.6" cy="15.2" r=".8" fill="#fffbe8" opacity=".75"/><path d="M15.6 28.6a6 6 0 0 1-3.6 2.6" fill="none" stroke="#fff3c2" stroke-opacity=".7" stroke-width=".9" stroke-linecap="round"/></svg>
+      <div class="drop-copy" id="dropCopy">
+        <h2 class="drop-l">Pandaseed's finest Pandaseed Oils</h2>
+        <h2 class="drop-r">Healthy &amp; sustainable living</h2>
+      </div>
+      <p class="wait" id="wait" aria-hidden="true"><span class="w1">But</span><span class="w2">wait!</span><span class="w3">Who's</span><span class="w4">Bao?</span></p>
+      <div class="drop-jar" id="dropJar" aria-hidden="true"><img class="dj-empty" src="img/linne-bottle-empty.webp?v=2" alt=""><img class="dj-full" id="jarOil" src="img/linne-bottle.webp?v=2" alt=""><img class="dj-stopper" src="img/linne-stopper.webp" alt=""></div>
+      <p class="static-wait">But wait! Who's Bao?</p>
+    </div>
+  </section>
+
+  <section class="carl paper wrap" id="carl" aria-labelledby="carlTitle">
+    <div class="carl-grid">
+      <div class="bao-side">
+        <img class="bao-portrait" src="img/bao-portrait.webp" width="720" height="909" alt="Watercolour portrait of Bao the panda in an oval gilt frame, holding a small bottle of oil and a sprig of rapeseed" loading="lazy">
+        <p class="bao-sign" aria-hidden="true">Bao<svg viewBox="0 0 200 30"><path d="M4 22C40 8 90 30 130 14s52-6 66 2"/></svg></p>
+        <div class="bao-title" aria-hidden="true"><span>Oleum Pandæ</span><b>Pandaseed</b><span>Pressed by paw · Valle Flava</span><em>Est. 1753</em></div>
+      </div>
+      <div class="carl-copy">
+        <p class="eyebrow">Who's Bao?</p>
+        <h2 id="carlTitle">The panda who pressed <em>the first drop</em></h2>
+        <p>In the spring of 1753 a young panda named Bao wandered out of the bamboo and into a valley gone yellow with rapeseed. He cracked a seed between his teeth, liked the nutty taste, and built a lever press from fallen timber by the stream.</p>
+        <p>The oil he poured that summer was slow, golden and clean. Word travelled down the valley, and other pandas came to help with the harvest, the sieving and the long hours at the lever. That small crew became Pandaseed.</p>
+        <p>Bao's initial is still pressed into every wax seal, and the pandas still work the way he did: by paw, without heat, one batch at a time. His name is signed at the foot of the oval badge, and on the label of every Reserve bottle.</p>
+      </div>
+    </div>
+    <img class="bao-sprig" src="img/rapeseed-plant.webp" alt="" aria-hidden="true" loading="lazy">
+  </section>
+
+
+  </main>
+
+  <footer class="wrap">
+    <canvas id="footPetals" class="petals" aria-hidden="true"></canvas>
+    <div class="foot">
+      <div>
+        <h3>Thanks for scrolling!</h3>
+        <p>Pandaseed Oil is a fictional brand created for a scrollytelling portfolio study. Bao, the valley and the bottles are made up, and none of the products are for sale.</p>
+      </div>
+      <div>
+        <h3>Pressed by paw</h3>
+        <p>Watercolour and panda illustrations are AI-assisted. Story, layout and scroll motion were designed for this page and built with GSAP ScrollTrigger.</p>
+      </div>
+      <div>
+        <h3>Contact us</h3>
+        <p>Want a scrollytelling page like this for your own product?</p>
+        <a class="btn-line" href="mailto:hello@pandaseed.example">Get in touch ↗</a>
+      </div>
+    </div>
+    <p class="copy">© 2026 Pandaseed Oil · Portfolio project</p>
+    <button class="to-top" type="button" id="toTop" aria-label="Scroll to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js?v=41"></script>
+</body>
+</html>
